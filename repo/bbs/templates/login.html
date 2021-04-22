@@ -1,0 +1,49 @@
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+    <body>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+            <div class = "col-12" >
+              <div class = "col-12 text-center">
+        <h1>로그인</h1>
+        <br><br>
+        
+        </div>
+        <form method = "POST" action="">
+          {% csrf_token %}
+          
+          <div class="form-group">
+            <label for="username">사용자 이름</label>
+            <input type="text" 
+            class="form-control" 
+            name = "username" 
+            id="username" 
+            placeholder="이름을 입력하세요">
+          </div>
+        
+          <div class="form-group">
+            <label for="password">비밀번호</label>
+            <input type="password" 
+            name = "password" 
+            class="form-control" id="password" placeholder="비밀번호를 입력하세요">
+          </div>
+        
+        
+          <span style="color:red;"><strong>{{ error }}</strong> </span>
+          <button type="submit" class="btn btn-primary">로그인</button>
+        </form>
+
+
+</body>
+</html>
